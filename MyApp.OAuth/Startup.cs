@@ -21,6 +21,8 @@
                 .AddInMemoryClients(InMemoryConfiguration.Clients())
                 .AddInMemoryApiResources(InMemoryConfiguration.ApiResources())
                 .AddTestUsers(InMemoryConfiguration.Users());
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,10 +35,9 @@
 
             app.UseIdentityServer();
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Test using IdentityServer4!");
-            });
+            app.UseStaticFiles();
+
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
