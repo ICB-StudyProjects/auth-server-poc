@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.OAuth", "MyApp.OAuth\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Api", "MyApp.Api\MyApp.Api.csproj", "{3490ED47-4070-4CA1-A475-3E0DDC5F1FB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Web", "MyApp.Web\MyApp.Web.csproj", "{6BF46D78-E503-4C3B-A8B7-8D18866CD796}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3490ED47-4070-4CA1-A475-3E0DDC5F1FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3490ED47-4070-4CA1-A475-3E0DDC5F1FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3490ED47-4070-4CA1-A475-3E0DDC5F1FB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF46D78-E503-4C3B-A8B7-8D18866CD796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF46D78-E503-4C3B-A8B7-8D18866CD796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF46D78-E503-4C3B-A8B7-8D18866CD796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF46D78-E503-4C3B-A8B7-8D18866CD796}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

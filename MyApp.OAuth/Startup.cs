@@ -2,7 +2,6 @@
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.DependencyInjection;
     using MyApp.OAuth.Configuration;
     using System.IO;
@@ -18,8 +17,9 @@
                 .AddIdentityServer()
                 //.AddDeveloperSigningCredential()
                 .AddSigningCredential(new X509Certificate2(Directory.GetCurrentDirectory() + @"\Certificates\awesomenetwork.pfx", "test"))
-                .AddInMemoryClients(InMemoryConfiguration.Clients())
+                .AddInMemoryIdentityResources(InMemoryConfiguration.IdentityResources())
                 .AddInMemoryApiResources(InMemoryConfiguration.ApiResources())
+                .AddInMemoryClients(InMemoryConfiguration.Clients())
                 .AddTestUsers(InMemoryConfiguration.Users());
 
             services.AddMvc();
