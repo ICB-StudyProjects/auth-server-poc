@@ -49,6 +49,7 @@
                         IdentityServerConstants.StandardScopes.Profile,
                         "myapp"
                     },
+                    AllowAccessTokensViaBrowser = true, // Should be {false}
                     RedirectUris = { "http://localhost:57692/signin-oidc" },
                     PostLogoutRedirectUris = { "http://localhost:57692/signin-callback-oidc" }
                 }

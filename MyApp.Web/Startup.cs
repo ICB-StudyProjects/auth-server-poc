@@ -36,6 +36,8 @@
                     options.Authority = "http://localhost:51364/";
                     options.RequireHttpsMetadata = false; // {true} in Production
 
+                    // Added "token" to get "access token" back from the auth server
+                    options.ResponseType = "id_token token"; 
                     options.ClientId = "myapp_implicit";
                     options.SaveTokens = true;
                 });
