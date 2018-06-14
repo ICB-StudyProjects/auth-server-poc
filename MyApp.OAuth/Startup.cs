@@ -5,6 +5,8 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.DependencyInjection;
     using MyApp.OAuth.Configuration;
+    using System.IO;
+    using System.Security.Cryptography.X509Certificates;
 
     public class Startup
     {
@@ -14,7 +16,8 @@
         {
             services
                 .AddIdentityServer()
-                .AddDeveloperSigningCredential()
+                //.AddDeveloperSigningCredential()
+                .AddSigningCredential(new X509Certificate2(Directory.GetCurrentDirectory() + @"\Certificates\awesomenetwork.pfx", "test"))
                 .AddInMemoryClients(InMemoryConfiguration.Clients())
                 .AddInMemoryApiResources(InMemoryConfiguration.ApiResources())
                 .AddTestUsers(InMemoryConfiguration.Users());
