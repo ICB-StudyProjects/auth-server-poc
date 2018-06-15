@@ -4,6 +4,7 @@
     using IdentityServer4.Models;
     using IdentityServer4.Test;
     using System.Collections.Generic;
+    using System.Security.Claims;
 
     public class InMemoryConfiguration
     {
@@ -11,7 +12,7 @@
 
         public static IEnumerable<ApiResource> ApiResources()
         {
-            return new []
+            return new[]
             {
                 new ApiResource("myapp", "My App")
             };
@@ -43,12 +44,32 @@
                     ClientName = "MyApp Client",
                     //ClientSecrets = new [] { new Secret("$3cr37".Sha256()) },
                     AllowedGrantTypes = GrantTypes.Implicit,
-                    AllowedScopes = new [] 
+                    AllowedScopes = new []
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "myapp"
                     },
+                    AllowAccessTokensViaBrowser = true, // Should be {false}
+                    RedirectUris = { "http://localhost:57692/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:57692/signin-callback-oidc" }
+                },
+                new Client
+                {
+                    ClientId = "myapp_code",
+                    ClientName = "MyApp Code Flow",
+                    ClientSecrets = new [] { new Secret("$3cr37".Sha256()) },
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    AllowedScopes = new []
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.Address,
+                        IdentityServerConstants.StandardScopes.Phone,
+                        "myapp"
+                    },
+                    AllowOfflineAccess = true,
                     AllowAccessTokensViaBrowser = true, // Should be {false}
                     RedirectUris = { "http://localhost:57692/signin-oidc" },
                     PostLogoutRedirectUris = { "http://localhost:57692/signin-callback-oidc" }
@@ -64,13 +85,25 @@
                 {
                     SubjectId = "1",
                     Username = "tester@testing.com",
-                    Password = "super_pass"
+                    Password = "super_pass",
+                    Claims = new []
+                    {
+                        new Claim("email", "tester@testing.com"),
+                        new Claim("address", "24 Somewhere str."),
+                        new Claim("phone", "+359 123 123 123")
+                    }
                 },
                 new TestUser
                 {
                     SubjectId = "2",
                     Username = "my@account.com",
-                    Password = "super_pass"
+                    Password = "super_pass",
+                    Claims = new [] 
+                    {
+                        new Claim("email", "my@account.com"),
+                        new Claim("address", "24 Somewhere str."),
+                        new Claim("phone", "+359 312 312 313")
+                    }
                 }
             };
         }
