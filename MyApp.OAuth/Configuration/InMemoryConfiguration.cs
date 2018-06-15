@@ -23,7 +23,10 @@
             return new IdentityResource[]
             {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+                new IdentityResources.Profile(),
+                new IdentityResources.Email(),
+                new IdentityResources.Phone(),
+                new IdentityResources.Address()
             };
         }
 
@@ -48,6 +51,9 @@
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.Address,
+                        IdentityServerConstants.StandardScopes.Phone,
                         "myapp"
                     },
                     AllowAccessTokensViaBrowser = true, // Should be {false}
@@ -88,6 +94,8 @@
                     Password = "super_pass",
                     Claims = new []
                     {
+                        new Claim("name", "Tester"),
+                        new Claim("website", "https://testing.com"),
                         new Claim("email", "tester@testing.com"),
                         new Claim("address", "24 Somewhere str."),
                         new Claim("phone", "+359 123 123 123")
@@ -100,6 +108,8 @@
                     Password = "super_pass",
                     Claims = new [] 
                     {
+                        new Claim("name", "MyName"),
+                        new Claim("website", "https://website.com"),
                         new Claim("email", "my@account.com"),
                         new Claim("address", "24 Somewhere str."),
                         new Claim("phone", "+359 312 312 313")
