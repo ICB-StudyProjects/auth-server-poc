@@ -219,6 +219,7 @@ namespace IdentityServer4.Quickstart.UI
             }
 
             return View("LoggedOut", vm);
+            //return View(vm.PostLogoutRedirectUri);
         }
 
 

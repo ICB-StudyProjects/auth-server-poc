@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.OAuth", "MyApp.OAuth\MyApp.OAuth.csproj", "{A65397CF-9E3B-4932-8F03-0BB5D5912772}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.OAuth", "MyApp.OAuth\MyApp.OAuth.csproj", "{A65397CF-9E3B-4932-8F03-0BB5D5912772}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Api", "MyApp.Api\MyApp.Api.csproj", "{3490ED47-4070-4CA1-A475-3E0DDC5F1FB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Api", "MyApp.Api\MyApp.Api.csproj", "{3490ED47-4070-4CA1-A475-3E0DDC5F1FB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Web", "MyApp.Web\MyApp.Web.csproj", "{6BF46D78-E503-4C3B-A8B7-8D18866CD796}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Web", "MyApp.Web\MyApp.Web.csproj", "{6BF46D78-E503-4C3B-A8B7-8D18866CD796}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{A427DC46-E23F-4D6B-9538-835E8D49FE40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6BF46D78-E503-4C3B-A8B7-8D18866CD796}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BF46D78-E503-4C3B-A8B7-8D18866CD796}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BF46D78-E503-4C3B-A8B7-8D18866CD796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A427DC46-E23F-4D6B-9538-835E8D49FE40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A427DC46-E23F-4D6B-9538-835E8D49FE40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A427DC46-E23F-4D6B-9538-835E8D49FE40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A427DC46-E23F-4D6B-9538-835E8D49FE40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
