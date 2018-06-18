@@ -9,6 +9,7 @@
     using System.Security.Cryptography.X509Certificates;
     using Microsoft.EntityFrameworkCore;
     using System.Reflection;
+    using MyApp.OAuth.Data.Migrations.IdentityServer;
 
     //using MyApp.Web.Data.Migrations.IdentityServer.PersistedGrantDb;
 
@@ -32,7 +33,7 @@
                 .AddIdentityServer()
                 //.AddDeveloperSigningCredential()
                 .AddSigningCredential(new X509Certificate2(Directory.GetCurrentDirectory() + @"\Certificates\awesomenetwork.pfx", "test"))
-                .AddInMemoryIdentityResources(InMemoryConfiguration.IdentityResources())
+                .AddTestUsers(InMemoryConfiguration.Users())
                 // this adds the config data from DB (clients, resources)
                 .AddConfigurationStore(options =>
                 {
@@ -68,6 +69,8 @@
             app.UseStaticFiles();
 
             app.UseMvcWithDefaultRoute();
+
+            IdentityServerDatabaseInitialization.InitializeDatabase(app);
         }
     }
 }
