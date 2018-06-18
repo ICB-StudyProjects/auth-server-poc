@@ -8,6 +8,9 @@
     using Microsoft.Extensions.Configuration;
     using System.Security.Cryptography.X509Certificates;
     using Microsoft.EntityFrameworkCore;
+    using System.Reflection;
+
+    //using MyApp.Web.Data.Migrations.IdentityServer.PersistedGrantDb;
 
     public class Startup
     {
@@ -22,8 +25,8 @@
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var authDbConnectionString = Configuration.GetConnectionString("MyApp.OAuth");
-            var assembly = typeof(Startup).GetType().Assembly.GetName().Name;
+            var authDbConnectionString = Configuration.GetConnectionString("MyAppOAuthContext");
+            var assembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             services
                 .AddIdentityServer()
